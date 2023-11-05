@@ -17,13 +17,11 @@ socket.on("chat-message", (data) => {
 //
 socket.on("user-connected", (name) => {
   //   console.log(name, "name");
-  //
   appendMessage(`${name} connected`);
 });
 //
 socket.on("user-disconnected", (name) => {
   //   console.log(name, "name");
-  //
   appendMessage(`${name} disconnected`);
 });
 //
@@ -33,8 +31,7 @@ messageForm.addEventListener("submit", (e) => {
 
   //
   appendMessage(`You: ${message}`);
-  //
-  //emit send info from cliet to server
+
   //"send-chat-message"--event name
   socket.emit("send-chat-message", message);
   //empty out message after every sent
