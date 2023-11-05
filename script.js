@@ -16,9 +16,15 @@ socket.on("chat-message", (data) => {
 
 //
 socket.on("user-connected", (name) => {
-  console.log(name, "name");
+  //   console.log(name, "name");
   //
   appendMessage(`${name} connected`);
+});
+//
+socket.on("user-disconnected", (name) => {
+  //   console.log(name, "name");
+  //
+  appendMessage(`${name} disconnected`);
 });
 //
 messageForm.addEventListener("submit", (e) => {

@@ -23,6 +23,13 @@ io.on("connection", (socket) => {
     //this sends everone connected to the server, except who sends it
     // socket.broadcast.emit;
   });
+  //disconnect
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("user-disconnected", users[socket.id]);
+    delete users[socket.id];
+    //
+    // socket.broadcast.emit("user-connected", name);
+  });
   //
 });
 //
