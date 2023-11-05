@@ -8,7 +8,7 @@ socket.on("chat-message", (data) => {
 //
 messageForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const message = messageInput;
+  const message = messageInput.value;
   //emit send info from cliet to server
   //"send-chat-message"--event name
   socket.emit("send-chat-message", message);
