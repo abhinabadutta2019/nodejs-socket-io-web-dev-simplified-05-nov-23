@@ -43,7 +43,7 @@ messageForm.addEventListener("submit", (e) => {
 
 //
 function appendMessage(message) {
-  const messageElement = document.createElement("div");
-  messageElement.innerText = message;
-  messageContainer.append(message);
+  const messageElement = document.createElement("div"); // Create a new div for each message
+  messageElement.innerHTML = message.replace(/\n/g, "<br>"); // Use innerHTML and replace line breaks with <br>
+  messageContainer.appendChild(messageElement); // Append the message div to the container
 }
