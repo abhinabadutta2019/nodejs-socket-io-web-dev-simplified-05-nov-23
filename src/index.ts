@@ -19,12 +19,21 @@ io.on("connection", (socket) => {
   console.log(`User connected: ${socket.id}`);
   //
   socket.on("join_room", (data) => {
-    socket.join(data);
+    //
+    const { room, userName } = data;
+    socket.join(room);
+    //
+    // socket.join(data);
+    console.log(`${userName} joined room ${room}`);
   });
   //
   socket.on("send_message", (data) => {
     //
-    socket.to(data.room).emit("recived_message", data);
+    const { message, room, userName } = data;
+    // socket.to(data.room).emit("recived_message", data);
+    socket.to(room).emit("recived_message", { message, userName });
+    console.log(`${userName} sent a message to room ${room}: ${message}`);
+
     // console.log(data, "-send_message--data");
     // console.log(data.room);
 
