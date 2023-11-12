@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
     //
     const { message, room, userName } = data;
     // socket.to(data.room).emit("recived_message", data);
-    socket.to(room).emit("recived_message", { message, userName });
+    socket.to(room).emit("recived_message", { message, userName, room });
     console.log(`${userName} sent a message to room ${room}: ${message}`);
 
     // console.log(data, "-send_message--data");
