@@ -14,21 +14,19 @@ const io = new Server(server, {
     methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
   },
 });
-
 //
 io.on("connection", (socket) => {
-  console.log(`User connected:${socket.id}`);
-  //
-  socket.on("join_room", (data) => {
-    socket.join(data);
-  });
+  console.log(`User connected: ${socket.id}`);
   //
   socket.on("send_message", (data) => {
-    // console.log(data);
-    // socket.broadcast.emit("recived_message", data);
-    socket.to(data.room).emit("recived_message", data);
+    //
+    console.log(data, "-send_message--data");
+
+    //
+    socket.emit("recived_message", data);
   });
 });
+
 //
 
 const PORT = 3014;
